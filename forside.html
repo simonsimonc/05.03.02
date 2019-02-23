@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downtown</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato(%7CRoboto" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: black;
+        }
+
+
+        img {
+            width: 100%;
+        }
+
+
+        #topmenu {
+            list-style-type: none;
+            transition: transform 1s;
+            left: 0;
+            background-image: url(imgs/background.jpg);
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            top: -1rem;
+            text-decoration: underline;
+            position: absolute;
+        }
+
+        #topmenu a {
+
+            font-size: 1.6rem;
+            color: white;
+            text-transform: uppercase;
+            color: #EEDDC4;
+            font-family: 'Roboto', sans-serif;
+
+        }
+
+
+        #topmenu li {
+            padding-top: 7rem;
+            text-align: center;
+            padding-right: 3rem;
+        }
+
+        .hidden {
+            transform: translateX(-150%);
+
+        }
+
+        #menuknap {
+            display: inline-block;
+            color: white;
+            font-size: 2rem;
+            padding: 1.5rem;
+            z-index: 2;
+            position: absolute;
+
+        }
+
+        .topnav {
+            list-style-type: none;
+            transition: transform 1s;
+            z-index: 1;
+            width: 100%;
+            text-align: center;
+            padding: 3rem;
+            background: rgba(0, 0, 0, 0.34);
+
+        }
+
+        .topnav a {
+            font-size: 1.3rem;
+            text-decoration: none;
+            color: #EEDDC4;
+            text-transform: uppercase;
+            padding: 0.75rem;
+            margin-top: 0.75rem;
+            margin-left: 10rem; 
+            margin-right: 10rem;
+            font-weight: bolder;
+        }
+
+        .topnav a:hover {
+            font-size: 1.6rem;
+        }
+
+
+       
+
+        .logo {
+            background-image: url(imgs/DownTown%20Logo.svg);
+            height: 10vw;
+            width: 6vw;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 0.5vw;
+            left: 2vw;
+            background-size: 100%;
+
+
+        }
+
+       
+
+
+        #splash {
+            max-width: none;
+            position: absolute;
+            top: 0; 
+            z-index: -1;
+        }
+        
+        
+
+section {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+        
+         @media screen and (min-width:680px) {
+
+            .burgermenu {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width:680px) {
+
+            .topnav {
+                display: none;
+            }
+              .logo {
+                height: 23vw;
+                width: 18vw;
+                left: 78vw;
+                  top: 2vw;}
+
+
+        }
+
+        
+               @media only screen 
+and (min-device-width : 768px) 
+            and (max-device-width : 1024px) {
+                .topnav a { 
+            margin-right: 0;
+            margin-left: 7rem;
+        }
+                 .logo {
+                height: 12vw;
+                width: 8vw;
+                top: 2vw;
+                left: 5vw;
+                
+            }
+                
+        }
+
+        
+        
+    </style>
+</head>
+
+<body>
+
+
+    <nav>
+        <a href="forside.html"><div class="logo"></div></a>
+
+  <div class="topnav">
+            <a href="menu.html">Menu</a>
+            <a href="omos.html">Om os</a>
+            <a href="kontakt.html">Kontakt</a>
+
+        </div>
+
+        <div class="burgermenu">
+            <div id="menuknap">☰</div>
+            <ul id="topmenu" class="hidden">
+                <li><a href="forside.html">Forside</a></li>
+                <li><a href="menu.html">menu</a></li>
+                <li><a href="omos.html">Om os</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+
+            </ul>
+        </div>
+
+
+
+    </nav>
+
+   
+     <section id=splash>
+        <picture>
+            <source media="(min-width: 1400px)" srcset="imgs/desktop.png">
+            <source media="(min-width: 1024px)" srcset="imgs/tablet_landscape.png">
+            <source media="(min-width: 768px)" srcset="imgs/tablet_portrait.png">
+            <source media="(min-width: 627px)" srcset="imgs/mobile_landscape.png">
+            <img src="imgs/mobile_portrait.png" alt="mobil portrait">
+        </picture>
+    </section>
+
+
+
+    <script>
+        window.addEventListener("load", sidenVises);
+
+        function sidenVises() {
+            console.log("siden vises");
+            //klik på topmenu-knap
+            document.querySelector("#menuknap").addEventListener("click", toggletopmenu);
+        }
+
+        function toggletopmenu() {
+            console.log("toggle topmenu");
+            document.querySelector("#topmenu").classList.toggle("hidden");
+
+
+            let erSkjult = document.querySelector("#topmenu").classList.contains("hidden");
+
+            if (erSkjult == true) {
+                //        topmenuen er nu skjult - ændre den til☰
+                document.querySelector("#menuknap").textContent = "☰";
+            } else {
+                //        topmenuen er vist - ændre topmenuknap til ×
+                document.querySelector("#menuknap").textContent = " × "
+
+            }
+        }
+    </script>
+</body>
+
+</html>

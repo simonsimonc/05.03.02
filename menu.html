@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downtown</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato(%7CRoboto" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+    <style>
+        #liste {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            margin: 1rem;
+            grid-gap: 3rem;
+
+
+
+        }
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+
+
+        }
+
+        a {
+            color: #746e68;
+        }
+
+
+
+        h2 {
+            color: white;
+            margin-left: 1rem;
+        }
+
+        p {
+            margin-left: 1rem;
+            color: white;
+            font-family: 'Lato', sans-serif;
+        }
+
+
+        body {
+            background-image: url(imgs/background.jpg);
+
+
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+
+
+        }
+
+
+        img {
+            width: 100%;
+        }
+
+
+    
+
+        @media only screen and (min-width:768px) {
+            #liste {
+                grid-template-columns: repeat(3, 1fr);
+
+            }
+        }
+
+    
+        .menuramme img {
+           border: #707070 5px solid; 
+        }
+
+
+        .valgt {
+            background-color: #EECCDD;
+        }
+
+
+        .filter {
+            height: 2vw;
+            margin: 0.3vw;
+            font-weight: bold;
+
+        }
+
+        .menu {
+            text-align: center;
+        }
+
+
+
+        #popup {
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            background-color: hsla(0, 1%, 69%, 0.5);
+            display: none;
+            overflow: scroll;
+        }
+
+        #indhold {
+            min-height: 50vh;
+            background-color: black;
+            width: 40vw;
+            margin: 4rem auto;
+            color: white;
+
+
+
+        }
+
+
+        .menu button {
+            border-radius: 6px;
+            width: 8rem;
+            height: 4rem;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            text-shadow: 0px 1px 0px #ffffff; 
+            background: rgba(255, 255, 255, 0.76);
+            
+
+        }
+
+        #luk {
+            position: fixed;
+            right: 21rem;
+
+        }
+
+        #luk button {
+            font-size: 2rem;
+            padding: 1rem 1rem;
+            background-color: black;
+            color: #EEDDC4;
+            margin-top: 5rem;
+        }
+
+
+
+
+
+        h1 {
+
+            margin-top: 4rem;
+            margin-bottom: 1rem;
+            font-family: 'Roboto', sans-serif;
+        
+        }
+        
+        
+        
+        /*BURGERMENU*/
+       
+
+        #topmenu {
+
+
+            list-style-type: none;
+            transition: transform 1s;
+            left: 0;
+            background-image: url(imgs/background.jpg);
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            text-decoration: underline;
+            position: absolute;
+        }
+
+        #topmenu a {
+            font-size: 1.6rem;
+            color: white;
+            text-transform: uppercase;
+            color: #EEDDC4;
+            font-family: 'Roboto', sans-serif;
+
+        }
+
+
+        #topmenu li {
+            padding: 2.5rem;
+            text-align: center;
+            padding-right: 5rem;
+        }
+
+        .hidden {
+            transform: translateX(-150%);
+
+        }
+
+        #menuknap {
+            display: inline-block;
+            color: white;
+            font-size: 2rem;
+            padding: 1.5rem;
+            z-index: 2;
+                   position: relative;
+        }
+
+        .topnav {
+            list-style-type: none;
+            transition: transform 1s;
+            z-index: 1;
+            width: 100%;
+            text-align: center;
+            padding: 3rem;
+            background: rgba(0, 0, 0, 0.34);
+
+        }
+
+        .topnav a {
+            font-size: 1.3rem;
+            text-decoration: none;
+            color: #EEDDC4;
+            text-transform: uppercase;
+            padding: 0.75rem;
+            margin-top: 0.75rem;
+            margin-left: 10rem; 
+            margin-right: 10rem;
+            font-weight: bolder;
+        }
+
+        .topnav a:hover {
+            font-size: 1.6rem;
+        }
+
+
+        
+
+
+        .logo {
+            background-image: url(imgs/DownTown%20Logo.svg);
+            height: 10vw;
+            width: 6vw;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 0.5vw;
+            left: 2vw;
+            background-size: 100%;
+
+
+        }
+
+       @media screen and (min-width:680px) {
+
+            .burgermenu {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width:680px) {
+
+            .topnav {
+                display: none;
+            }
+            
+            .logo {
+                height: 23vw;
+                width: 18vw;
+                left: 78vw;
+                top: 2vw;
+                
+            }
+            
+            #indhold{
+                width: 100vw;
+                
+            }
+            
+            #popup{
+             padding-top: 2rem;
+            }
+            
+            #luk{
+                right: 1rem;
+            }
+            
+            h1{
+                margin-top: 1rem;
+            }
+        
+            .menu button {
+                width: 5rem
+            }
+            
+            #liste{
+                margin: 2rem;
+            }
+
+
+        }
+        
+/*        IPAD*/
+             @media only screen 
+and (min-device-width : 768px) 
+            and (max-device-width : 1024px) {
+                .topnav a { 
+            margin-right: 0;
+            margin-left: 5rem;
+        }
+                #liste {
+                grid-template-columns: repeat(2, 1fr);
+            }
+                
+                .logo {
+                height: 12vw;
+                width: 8vw;
+                top: 2vw;
+                left: 5vw;
+                
+            }
+                
+                #luk{
+                    right: 21vw;
+                }
+                
+                #indhold {
+                    width: 60vw;
+                }
+                
+        }
+
+        
+    </style>
+</head>
+
+<body>
+
+
+
+
+
+
+    <div id="popup">
+        <div id="luk">
+            <button>X</button>
+
+        </div>
+
+        <div id="indhold"></div>
+    </div>
+
+    <header>
+
+
+    <div class="logo"></div>
+
+
+        <nav>
+        <a href="forside.html"><div class="logo"></div></a>
+
+  <div class="topnav">
+            <a href="menu.html">Menu</a>
+            <a href="omos.html">Om os</a>
+            <a href="kontakt.html">Kontakt</a>
+
+        </div>
+
+        <div class="burgermenu">
+            <div id="menuknap">☰</div>
+            <ul id="topmenu" class="hidden">
+                <li><a href="forside.html">Forside</a></li>
+                <li><a href="menu.html">menu</a></li>
+                <li><a href="omos.html">Om os</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+
+            </ul>
+        </div>
+
+
+
+    </nav>
+
+
+        <h1>Alle</h1>
+        <nav class="menu">
+            <button class="valgt filter" data-hold="alle">Alle</button>
+            <button class="valgt filter" data-hold="Hovedret">Hovedret</button>
+            <button class="filter" data-hold="Sideorders">Side orders</button>
+            <button class="filter" data-hold="Drinks">Drinks</button>
+        </nav>
+    </header>
+
+    <div id="liste"></div>
+
+
+
+
+
+
+    <script>
+        window.addEventListener("load", sidenVises);
+
+        function sidenVises() {
+            console.log("siden vises");
+            //klik på topmenu-knap
+            document.querySelector("#menuknap").addEventListener("click", toggletopmenu);
+        }
+
+        function toggletopmenu() {
+            console.log("toggle topmenu");
+            document.querySelector("#topmenu").classList.toggle("hidden");
+
+
+            let erSkjult = document.querySelector("#topmenu").classList.contains("hidden");
+
+            if (erSkjult == true) {
+                //        topmenuen er nu skjult - ændre den til☰
+                document.querySelector("#menuknap").textContent = "☰";
+            } else {
+                //        topmenuen er vist - ændre topmenuknap til ×
+                document.querySelector("#menuknap").textContent = " × "
+
+            }
+        }
+
+
+
+
+        document.addEventListener("DOMContentLoaded", start);
+
+
+        let alleRetter = [];
+        let filter = "alle";
+        const dest = document.querySelector("#liste");
+
+
+        async function start() {
+            const myJson = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1qxD63RgmEGIfUhbMpGtXM2g-x635-rAHPqOyTdNQ6V4");
+            alleRetter = await myJson.json();
+
+            visRet();
+        }
+
+        function visRet() {
+            dest.innerHTML = "";
+            alleRetter.forEach(ret => {
+                if (filter == "alle" || filter == ret.kategori) {
+                    let template = `<div class="menuramme"><img src=imgs/${ret.billede}.png alt=${ret.navn}><h2>${ret.navn}</h2> <br> <p>Pris: ${ret.pris},-</p></div>`;
+                    dest.insertAdjacentHTML("beforeend", template);
+                    dest.lastElementChild.addEventListener("click", () => {
+                        visSingle(ret);
+                    });
+
+
+
+
+                    function visSingle(ret) {
+                        document.querySelector("#indhold").innerHTML = `<div class="menuramme"><img src=imgs/${ret.billede}.png alt=${ret.navn}><h2>${ret.navn}</h2> <br><p>${ret.lang}</p> <br> <p>Pris: ${ret.pris},-</p></div>`;
+                        document.querySelector("#popup").style.display = "block";
+                        document.querySelector("#popup #luk").addEventListener("click", close);
+                    }
+
+                    function close() {
+                        document.querySelector("#popup").style.display = "none";
+                    }
+
+
+                }
+            })
+        }
+
+
+
+        document.querySelectorAll(".filter").forEach(elm => {
+            elm.addEventListener("click", filtrering);
+        })
+
+        function filtrering() {
+            filter = this.getAttribute("data-hold");
+            document.querySelector("h1").textContent = this.textContent;
+            document.querySelectorAll(".filter").forEach(elm => {
+                elm.classList.remove("valgt");
+            })
+            this.classList.add("valgt");
+            visRet();
+        }
+        start();
+
+    </script>
+</body>
+
+</html>
